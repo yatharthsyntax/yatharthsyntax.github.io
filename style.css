@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
-/* BASE */
 * {
     margin: 0;
     padding: 0;
@@ -14,13 +13,11 @@ body {
     transition: 0.3s ease-in-out;
 }
 
-/* LIGHT MODE */
 body.light {
     background: #f4f4f4;
     color: #222;
 }
 
-/* NAVBAR */
 nav {
     display: flex;
     justify-content: space-between;
@@ -45,7 +42,6 @@ nav a:hover {
     color: #00d4ff;
 }
 
-/* HERO */
 .hero {
     height: 80vh;
     display: flex;
@@ -75,13 +71,11 @@ nav a:hover {
     background: #00a3cc;
 }
 
-/* SECTIONS */
 .about, .skills, .projects, .contact {
     padding: 60px 10%;
     text-align: center;
 }
 
-/* SKILL BARS */
 .skill-bar {
     margin: 20px auto;
     width: 70%;
@@ -106,7 +100,6 @@ nav a:hover {
     border-radius: 5px;
 }
 
-/* PROJECT CARDS */
 .project-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -125,12 +118,10 @@ nav a:hover {
     transform: translateY(-7px);
 }
 
-/* CONTACT */
 .contact span {
     color: #00d4ff;
 }
 
-/* ANIMATIONS */
 .fade-in {
     opacity: 0;
     transform: translateY(30px);
@@ -153,7 +144,6 @@ nav a:hover {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* THEME TOGGLE */
 .theme-toggle {
     position: fixed;
     top: 20px;
@@ -188,4 +178,76 @@ nav a:hover {
 
 #toggle:checked + .toggle-btn {
     background: #00d4ff;
+}
+
+
+
+@media (max-width: 768px) {
+   
+    body {
+        padding: 0 20px;
+    }
+
+    
+    nav {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    nav a {
+        font-size: 18px;
+        padding: 10px 0;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 40px;
+    }
+
+    .hero img {
+        width: 80%;
+        margin-top: 20px;
+    }
+
+    .hero-text h1 {
+        font-size: 28px;
+    }
+
+    .hero-text p {
+        font-size: 16px;
+    }
+
+    .projects {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .project-card {
+        width: 100%;
+    }
+
+    .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .skill-box {
+        width: 45%;
+        padding: 15px;
+        font-size: 14px;
+    }
+
+    .contact {
+        text-align: center;
+    }
+
+    footer {
+        font-size: 14px;
+    }
 }
