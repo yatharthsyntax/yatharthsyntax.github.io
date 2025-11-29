@@ -1,0 +1,191 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/* BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: #0f0f0f;
+    color: #fff;
+    transition: 0.3s ease-in-out;
+}
+
+/* LIGHT MODE */
+body.light {
+    background: #f4f4f4;
+    color: #222;
+}
+
+/* NAVBAR */
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 10%;
+    position: sticky;
+    top: 0;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(5px);
+}
+
+nav ul {
+    display: flex;
+    gap: 25px;
+}
+
+nav a {
+    text-decoration: none;
+    color: inherit;
+}
+
+nav a:hover {
+    color: #00d4ff;
+}
+
+/* HERO */
+.hero {
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 60px;
+}
+
+.hero span {
+    color: #00d4ff;
+}
+
+.btn {
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: #00d4ff;
+    color: #000;
+    font-weight: bold;
+    border-radius: 10px;
+}
+
+.btn:hover {
+    background: #00a3cc;
+}
+
+/* SECTIONS */
+.about, .skills, .projects, .contact {
+    padding: 60px 10%;
+    text-align: center;
+}
+
+/* SKILL BARS */
+.skill-bar {
+    margin: 20px auto;
+    width: 70%;
+}
+
+.skill-bar p {
+    text-align: left;
+    margin-bottom: 5px;
+}
+
+.bar {
+    width: 100%;
+    height: 10px;
+    background: #333;
+    border-radius: 5px;
+}
+
+.bar span {
+    display: block;
+    height: 100%;
+    background: #00d4ff;
+    border-radius: 5px;
+}
+
+/* PROJECT CARDS */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.project-card {
+    padding: 25px;
+    background: #1a1a1a;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    background: #222;
+    transform: translateY(-7px);
+}
+
+/* CONTACT */
+.contact span {
+    color: #00d4ff;
+}
+
+/* ANIMATIONS */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeIn 1s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide-up {
+    animation: slideUp 1s forwards;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* THEME TOGGLE */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+}
+
+.toggle-btn {
+    width: 50px;
+    height: 25px;
+    background: #555;
+    display: block;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+}
+
+.toggle-btn::after {
+    content: '';
+    width: 22px;
+    height: 22px;
+    background: #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 1.5px;
+    left: 2px;
+    transition: 0.3s;
+}
+
+#toggle:checked + .toggle-btn::after {
+    left: 26px;
+}
+
+#toggle:checked + .toggle-btn {
+    background: #00d4ff;
+}
