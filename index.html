@@ -1,101 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Yatharth | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yatharth – Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-    <div class="theme-toggle">
-        <input type="checkbox" id="toggle">
-        <label for="toggle" class="toggle-btn"></label>
-    </div>
+    <header>
+        <h1>Yatharth Chaudhary</h1>
+        <p>Student • Developer • Tech Enthusiast</p>
+    </header>
 
     <nav>
-        <h2 class="logo">Yatharth</h2>
-        <ul>
-            <li><a href="#hero">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#contact">Contact</a>
     </nav>
 
-    <section id="hero" class="hero">
-        <h1 class="fade-in">Hi, I'm <span>Yatharth</span></h1>
-        <p class="slide-up">11th Grader  • Developer</p>
-        <a href="#projects" class="btn">View Projects</a>
+    <section id="about" class="hero">
+        <div class="hero-text">
+            <h2>Hello, I'm Yatharth 👋</h2>
+            <p>A student passionate about Computer Science, AI, and building projects.</p>
+            <button onclick="window.location.href='#projects'">View My Work</button>
+        </div>
+        <img src="https://i.imgur.com/3ZQ3Z4C.png" alt="Profile Image" />
     </section>
 
-    <section id="about" class="about fade-in">
-        <h2>About Me</h2>
-        <p>
-            I'm an 11th grade student passionate about Computer Science, software development, 
-            and AI. I enjoy building projects that challenge me and help grow my skills.
-        </p>
-    </section>
-
-    <section id="skills" class="skills fade-in">
-        <h2>Skills</h2>
-
-        <div class="skill-bar">
-            <p>HTML</p>
-            <div class="bar"><span style="width: 90%"></span></div>
-        </div>
-
-        <div class="skill-bar">
-            <p>CSS</p>
-            <div class="bar"><span style="width: 80%"></span></div>
-        </div>
-
-        <div class="skill-bar">
-            <p>JavaScript</p>
-            <div class="bar"><span style="width: 70%"></span></div>
-        </div>
-
-        <div class="skill-bar">
-            <p>Python</p>
-            <div class="bar"><span style="width: 75%"></span></div>
-        </div>
-
-    </section>
-
-    <section id="projects" class="projects fade-in">
-        <h2>Projects</h2>
+    <section id="projects" class="projects-section">
+        <h2>My Projects</h2>
 
         <div class="project-grid">
-
             <div class="project-card">
                 <h3>Portfolio Website</h3>
-                <p>A modern multi-section portfolio with dark mode + animations.</p>
+   <p>A modern multi-section portfolio with dark mode and animations.</p>
             </div>
-
             <div class="project-card">
                 <h3>Dual-Axis Solar Tracker using Arduino</h3>
                 <p>Simple mechanism + basic arduino skill.</p>
             </div>
 
-            <div class="project-card">
-                <h3>AI based study planner</h3>
-                <p>A smart AI based planner. Check it out on Github.</p>
-            </div>
-
+            <a href="https://yatharthsyntax.github.io/AI-study-planner/"
+               target="_blank"
+               class="project-card">
+                <h3>AI Study Planner</h3>
+                <p>An AI-powered planner that generates schedules, tasks and revisions.</p>
+            </a>
         </div>
     </section>
 
-    <section id="contact" class="contact fade-in">
-        <h2>Contact</h2>
-        <p>Email: <span>yatharth.syntax@gmail.com</span></p>
+    <section id="skills" class="skills-section">
+        <h2>Skills</h2>
+        <div class="skills">
+            <div class="skill-box">HTML</div>
+            <div class="skill-box">CSS</div>
+            <div class="skill-box">JavaScript</div>
+            <div class="skill-box">Python</div>
+            <div class="skill-box">GitHub</div>
+        </div>
     </section>
+
+    <section id="contact" class="contact">
+        <h2>Contact Me</h2>
+        <p>Want to reach out?</p>
+        <p>Email: <strong>Yatharth.syntax@gmail.com</strong></p>
+    </section>
+
+    <footer>
+        © 2025 Yatharth Chaudhary — All Rights Reserved
+    </footer>
 
     <script src="script.js"></script>
 </body>
 </html>
-
-
-
-
