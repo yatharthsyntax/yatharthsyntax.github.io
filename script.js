@@ -1,29 +1,71 @@
-const themeBtn = document.getElementById('themeToggle');
-themeBtn.addEventListener('click', ()=>{
-  const isLight = document.body.classList.toggle('light');
-  themeBtn.textContent = isLight ? '☀️' : '🌙';
-  localStorage.setItem('theme', isLight ? 'light' : 'dark');
-});
-
-if(localStorage.getItem('theme') === 'light'){
-  document.body.classList.add('light');
-  themeBtn.textContent = '☀️';
-}
-
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click', e=>{
-    const target = a.getAttribute('href');
-    if(target.startsWith('#')){
-      e.preventDefault();
-      const el = document.querySelector(target);
-      if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.getElementById('themeToggle');
+    const body = document.body;
+    const sections = document.querySelectorAll('.panel');
+    const skillBars = document.querySelectorAll('.skill-bar div');
+    
+    const savedTheme = localStorage.getItem('theme');
+    
+    if (savedTheme) {
+        body.classList.add(savedTheme);
+        updateIcon(savedTheme === 'dark');
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        body.classList.add('dark');
+        updateIcon(true);
     }
-  });
-});
+    
+    themeToggle.addEventListener('click', () => {
+        body.classList.toggle('dark');
+        const isDark = body.classList.contains('dark');
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+        updateIcon(isDark);
+    });
+    
+    function updateIcon(isDark) {
+        themeToggle.textContent = isDark ? '☀️' : '🌙';
+    }
 
-window.addEventListener('load', ()=>{
-  setTimeout(()=>{document.querySelectorAll('.skill-bar div').forEach(div=>{
-    const p = div.parentElement.previousElementSibling.querySelector('.percent');
-    if(p) div.style.width = p.textContent.trim();
-  })},120);
+    const observerOptions = {
+        threshold: 0.15,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                
+                if (entry.target.classList.contains('skills')) {
+                    animateSkills();
+                }
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+
+    function animateSkills() {
+        skillBars.forEach(bar => {
+            bar.style.transform = 'scaleX(1)';
+        });
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                const headerOffset = 80;
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+    
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
+                });
+            }
+        });
+    });
 });
