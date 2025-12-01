@@ -1,15 +1,11 @@
-// DARK MODE
-const toggle = document.getElementById("toggle");
-toggle.addEventListener("change", () => {
-    document.body.classList.toggle("light");
+const toggle = document.getElementById('themeToggle');
+toggle.addEventListener('click', () => {
+    document.body.classList.toggle('light');
+    toggle.textContent = document.body.classList.contains('light') ? '☀️' : '🌙';
+    localStorage.setItem('theme', document.body.classList.contains('light'));
 });
 
-// SMOOTH SCROLLING
-document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener("click", (e) => {
-        e.preventDefault();
-        document.querySelector(link.getAttribute("href")).scrollIntoView({
-            behavior: "smooth"
-        });
-    });
-});
+if (localStorage.getItem('theme') === 'true') {
+    document.body.classList.add('light');
+    toggle.textContent = '☀️';
+}
